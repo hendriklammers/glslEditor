@@ -107,7 +107,8 @@ export default class Shader {
 
         // ========== EVENTS
         // Draggable/resizable/snappable
-        if (main.options.canvas_draggable || main.options.canvas_resizable || main.options.canvas_snapable) {
+        if ((main.options.canvas_draggable || main.options.canvas_resizable || main.options.canvas_snapable)
+            && !main.options.canvas_background) {
             subscribeInteractiveDom(this.el, {
                                                 move: main.options.canvas_draggable,
                                                 resize: main.options.canvas_resizable,
@@ -133,7 +134,17 @@ export default class Shader {
         if (main.menu) {
             this.el.style.top = (main.menu.el.clientHeight || main.menu.el.offsetHeight || main.menu.el.scrollHeight) + "px";
         }
-    
+
+        if (this.options.canvas_background) {
+            let height = window.innerHeight;
+            if (main.menu) {
+                const menuHeight = (main.menu.el.clientHeight || main.menu.el.offsetHeight || main.menu.el.scrollHeight);
+                height -= menuHeight;
+            }
+            this.el_canvas.setAttribute('width', window.innerWidth / window.devicePixelRatio);
+            this.el_canvas.setAttribute('height', height / window.devicePixelRatio);
+        }
+
         // Add all this to the main container
         main.container.appendChild(this.el);    
         glslcanvas.resize();
