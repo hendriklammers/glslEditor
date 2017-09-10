@@ -31,12 +31,12 @@ export function initEditor (main) {
     // CREATE AND START CODEMIRROR
     let el = document.createElement('div');
     el.setAttribute('class', 'ge_editor');
-    
+
     // If there is a menu offset the editor to come after it
     if (main.menu) {
         el.style.paddingTop = (main.menu.el.clientHeight || main.menu.el.offsetHeight || main.menu.el.scrollHeight) + "px";
     }
-    
+
     main.container.appendChild(el);
 
     let cm = CodeMirror(el, {

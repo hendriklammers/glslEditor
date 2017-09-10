@@ -34,3 +34,29 @@
 .CodeMirror {
     margin-top: 12px;
 }
+
+/* When the canvas_background option is set to true: */
+.background-mode .CodeMirror {
+    text-shadow: rgba(0, 0, 0, 1) 0px 1px 2px;
+}
+
+.background-mode .ge_editor {
+    position: absolute;
+    z-index: var(--z-editor-background-mode);
+    left: 0;
+    top: 0;
+    padding-right: 10px;
+    height: auto;
+    resize: both;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.background-mode .CodeMirror {
+    background: transparent !important;
+}
+
+.background-mode .CodeMirror-gutters {
+    background: none;
+    border: none;
+}

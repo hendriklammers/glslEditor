@@ -138,15 +138,15 @@ export default class Shader {
         if (this.options.canvas_background) {
             let height = window.innerHeight;
             if (main.menu) {
-                const menuHeight = (main.menu.el.clientHeight || main.menu.el.offsetHeight || main.menu.el.scrollHeight);
-                height -= menuHeight;
+                height -= (main.menu.el.clientHeight || main.menu.el.offsetHeight || main.menu.el.scrollHeight);
             }
             this.el_canvas.setAttribute('width', window.innerWidth / window.devicePixelRatio);
             this.el_canvas.setAttribute('height', height / window.devicePixelRatio);
+            main.container.classList.add('background-mode');
         }
 
         // Add all this to the main container
-        main.container.appendChild(this.el);    
+        main.container.appendChild(this.el);
         glslcanvas.resize();
     }
 

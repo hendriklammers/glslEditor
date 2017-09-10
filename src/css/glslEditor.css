@@ -19,6 +19,7 @@
 
     /* Z-INDEX SCALE */
     --z-editor: 100;
+    --z-editor-background-mode: 201;
     --z-shader-ghost: 199;
     --z-shader: 200;
     --z-divider: 250;
